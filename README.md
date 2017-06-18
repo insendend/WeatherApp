@@ -41,7 +41,6 @@
 ![ScreenShot](https://raw.github.com/insendend/WeatherApp/master/WeatherApp/Screenshots/scrn4.jpg)
 
 
-
 ## Системные требования
 - .NET framework 4.5.2 и выше
 - Windows 7 / 8 / 10 (x86/x64)
