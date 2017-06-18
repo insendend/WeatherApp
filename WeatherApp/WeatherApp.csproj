@@ -178,5 +178,15 @@
       <Name>WUndergroundService</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Screenshots\scrn1.jpg" />
+    <Resource Include="Screenshots\scrn2.jpg" />
+    <Resource Include="Screenshots\scrn3.jpg" />
+    <Resource Include="Screenshots\scrn4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Install\WeatherApp-1.052017-Setup.exe" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
