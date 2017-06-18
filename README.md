@@ -32,10 +32,12 @@
 ## Руководство пользователя / Скриншоты
 
 Главное окно программы
+
 ![ScreenShot](https://raw.github.com/insendend/WeatherApp/master/WeatherApp/Screenshots/scrn2.jpg)
 
 Настройки
-![ScreenShot](https://raw.github.com/insendend/WeatherApp/master/WeatherApp/Screenshots/scrn3.jpg)
+
+![ScreenShot](https://raw.github.com/insendend/WeatherApp/master/WeatherApp/Screenshots/scrn3.jpg)    
 ![ScreenShot](https://raw.github.com/insendend/WeatherApp/master/WeatherApp/Screenshots/scrn4.jpg)
 
 
