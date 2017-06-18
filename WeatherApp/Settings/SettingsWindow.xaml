@@ -1,0 +1,89 @@
+﻿<Window x:Class="WeatherApp.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:local="clr-namespace:WeatherApp"
+        mc:Ignorable="d"
+        Title="Settings" Height="300" Width="400" WindowStartupLocation="CenterScreen" MinHeight="280" MinWidth="300">
+    <Window.Resources>
+        <Style x:Key="CustomCmb" TargetType="ComboBox">
+            <Setter Property="SelectedValuePath" Value="Key"/>
+            <Setter Property="DisplayMemberPath" Value="Value"/>
+            <Setter Property="SelectedIndex" Value="0"/>
+            <Setter Property="ItemsSource" Value="{Binding}"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TabControl>
+            <TabItem Header="General">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Сервис">
+                        <ComboBox Name="cmb_service" 
+                                  Style="{StaticResource CustomCmb}" 
+                                  DataContext="{x:Static local:ParamCollections.DicServ}" 
+                                  SelectionChanged="cmb_service_SelectionChanged"/>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Header="Город (Регион)">
+                        <ComboBox Name="cmb_cities" 
+                                  IsEditable="True" 
+                                  Style="{StaticResource CustomCmb}"/>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Header="Градусы">
+                        <ComboBox Name="cmb_tempunit" Style="{StaticResource CustomCmb}" 
+                                  DataContext="{x:Static local:ParamCollections.DicTemp}"/>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Grid.Column="2" Header="Скорость ветра">
+                        <ComboBox Name="cmb_speedunit" Style="{StaticResource CustomCmb}" 
+                                  DataContext="{x:Static local:ParamCollections.DicSpeed}"/>
+                    </GroupBox>
+                    <GroupBox Grid.Row="2" Grid.Column="2" Header="Давление">
+                        <ComboBox Name="cmb_pressunit" Style="{StaticResource CustomCmb}" 
+                                  DataContext="{x:Static local:ParamCollections.DicPres}"/>
+                    </GroupBox>
+                    <GroupBox Grid.Row="3" Header="Время обновления">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <WindowsFormsHost Name="picker" FontSize="14">
+                                <WindowsFormsHost.Child>
+                                    <wf:DateTimePicker Format="Custom" ShowUpDown="True" 
+                                                       CustomFormat="HH:mm:ss"/>
+                                </WindowsFormsHost.Child>
+                            </WindowsFormsHost>
+                            <Button Grid.Column="1" Margin="10 0 0 0" Click="Button_Click">
+                                <Image Source="/Icons/Clock-32.png"  Width="16"/>
+                            </Button>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="3" Grid.Column="1" Header="Автозагрузка">
+                        <CheckBox Name="cb_startup" Content="Загружать с Windows" FontSize="13"/>
+                    </GroupBox>
+                    <StackPanel Grid.Row="5" Orientation="Horizontal">
+                        <Button Name="but_ok" Content="Сохранить" Margin="5" Width="70" Click="but_ok_Click"/>
+                        <Button Name="but_cancel" Content="Отменить" Margin="5" Width="70" Click="but_cancel_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
