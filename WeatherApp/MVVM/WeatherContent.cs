@@ -40,10 +40,7 @@ namespace WeatherApp
                     OnPropertyChanged("Temperature");
                 }
             }
-            get
-            {
-                return temperature;
-            }
+            get { temperature; }
         }
 
         private Visibility visibility;
